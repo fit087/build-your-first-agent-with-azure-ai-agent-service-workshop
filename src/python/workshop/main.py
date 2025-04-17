@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import os
+import os.path  # Add this import for file path validation
 
 from azure.ai.projects.aio import AIProjectClient
 from azure.ai.projects.models import (
@@ -56,7 +57,7 @@ functions = AsyncFunctionTool(
     }
 )
 
-# INSTRUCTIONS_FILE = "instructions/function_calling.txt"
+INSTRUCTIONS_FILE = "instructions/function_calling.txt"
 # INSTRUCTIONS_FILE = "instructions/file_search.txt"
 # INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
 # INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
@@ -68,7 +69,7 @@ async def add_agent_tools() -> None:
     font_file_info = None
 
     # Add the functions tool
-    # toolset.add(functions)
+    toolset.add(functions)
 
     # Add the tents data sheet to a new vector data store
     # vector_store = await utilities.create_vector_store(
@@ -98,7 +99,10 @@ async def add_agent_tools() -> None:
 async def initialize() -> tuple[Agent, AgentThread]:
     """Initialize the agent with the sales data schema and instructions."""
 
+    print(INSTRUCTIONS_FILE)
+    print(os.path.isfile(INSTRUCTIONS_FILE))
     if not INSTRUCTIONS_FILE:
+        print("Entrou")
         return None, None
 
     font_file_info = await add_agent_tools()
@@ -108,6 +112,7 @@ async def initialize() -> tuple[Agent, AgentThread]:
 
     try:
         instructions = utilities.load_instructions(INSTRUCTIONS_FILE)
+        print("passou")
         # Replace the placeholder with the database schema string
         instructions = instructions.replace(
             "{database_schema_string}", database_schema_string)
@@ -136,7 +141,8 @@ async def initialize() -> tuple[Agent, AgentThread]:
 
     except Exception as e:
         logger.error("An error occurred initializing the agent: %s", str(e))
-        logger.error("Please ensure you've enabled an instructions file.")
+        logger.error("Please ensure you've enabled an instructions file and the Azure resources are correctly configured.")
+        return None, None
 
 
 async def cleanup(agent: Agent, thread: AgentThread) -> None:

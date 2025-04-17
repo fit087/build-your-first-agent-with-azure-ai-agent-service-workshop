@@ -76,6 +76,7 @@ Learn more about the Azure AI Agent Service in the [Azure AI Agent Service docum
 
     ```shell
     code .
+    # code .vscode\python-workspace.code-workspace
     ```
 
 ## Configure the Environment
