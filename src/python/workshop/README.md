@@ -57,6 +57,7 @@ Learn more about the Azure AI Agent Service in the [Azure AI Agent Service docum
 4. Create a virtual environment by running the following command:
 
     ```shell
+    python -m pip install --user virtualenv
     python -m venv .venv
     ```
 
@@ -94,3 +95,14 @@ Learn more about the Azure AI Agent Service in the [Azure AI Agent Service docum
     - **Save** the changes to the .env file.
 
 
+## Resource creation
+- Create a resorce group using EastUS2 if possible or EastUS only
+    [portal.azure.com](https://portal.azure.com/#home)
+- Create a project AI Foundry (this create also a AI Foundry hub)
+in EastUS2 region [ai.azure.com](https://ai.azure.com/)
+- Also deploy a model like GPT-4o ou GPT-4o-mini
+
+
+
+## Links
+- [Guide: Build your first agent with azure ai agent service workshop](https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/getting-started/)
