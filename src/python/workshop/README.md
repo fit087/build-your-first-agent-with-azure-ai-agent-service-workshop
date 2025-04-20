@@ -101,8 +101,30 @@ Learn more about the Azure AI Agent Service in the [Azure AI Agent Service docum
 - Create a project AI Foundry (this create also a AI Foundry hub)
 in EastUS2 region [ai.azure.com](https://ai.azure.com/)
 - Also deploy a model like GPT-4o ou GPT-4o-mini
+- Grounding with Bing Search in Azure portal (only for the Lab4) but is required to connect in the Azure Foundry and it's also required a pay-as-you-go account
 
+## Issues
+- Gounding with Bing Search is paid (35$ per 1k request) and Need an account pay-as-you-go
+because even if you have free credit, the SKU (Stock Keeping Unit) don't allow you
 
+- Problem with Gpt-4o-mini
+ERROR:__main__:An error occurred initializing the agent: (unsupported_model) The requested model 'gpt-4o-mini' cannot be used with the 'bing_grounding' tool.
+Code: unsupported_model
+Message: The requested model 'gpt-4o-mini' cannot be used with the 'bing_grounding' tool.
+ERROR:__main__:Please ensure you've enabled an instructions file and the Azure resources are correctly configured.
+Initialization failed. Ensure you have uncommented the instructions file for the lab.
+
+- Limit Rate
+Run failed. Error: {'code': 'rate_limit_exceeded', 'message': 'Rate limit is exceeded. Try again in 11 seconds.'}
+
+## Azure AI Foundry Resources
+- Agents Playground
+Build AI-powered agents that are securely grounded in your enterprise data and can take independent action via APIs and other connected, model-driven functions.
+
+    Enter your query (type exit or save to finish): save
+The agent has not been deleted, so you can continue experimenting with it in the Azure AI Foundry.
+Navigate to https://ai.azure.com, select your project, then playgrounds, agents playgound, then select agent id: asst_0t09U3FVZ3bXvjFXYCmEpR2E
+Program finished.
 
 ## Links
 - [Guide: Build your first agent with azure ai agent service workshop](https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/getting-started/)
