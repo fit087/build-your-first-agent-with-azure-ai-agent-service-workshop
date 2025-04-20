@@ -1,3 +1,7 @@
+# The agent has not been deleted, so you can continue experimenting with it in the Azure AI Foundry.
+# Navigate to https://ai.azure.com, select your project, then playgrounds, agents playgound,
+# then select agent id: asst_fkgPLAwkt32Dpfkc0D4iMK5C
+
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
 
